@@ -1,11 +1,11 @@
 .img1 {
-    width: 50%;
+    width: 100%;
     height: auto;
     border: 10px solid black;
 }
 
 .img2 {
-    width: 50%;
+    width: 100%;
     height: auto;
     border: 10px solid black;
     
@@ -15,14 +15,15 @@
     width: 50%;
 }
 
-.picDescription {
-    width: 60%;
-}
-
 .wrapper {
     display: flex;
 }
 
 .myBio {
-    width: 50%;
+    width: 100%;
+}
+
+.content {
+    max-width: 720px;
+    margin: auto;
 }
