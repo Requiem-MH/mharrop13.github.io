@@ -1,0 +1,12 @@
+body {
+    font-family: Calibri;
+}
+
+svg {
+    background-color: orange;
+}
+
+circle {
+    stroke: orange;
+    fill: orange;
+}
