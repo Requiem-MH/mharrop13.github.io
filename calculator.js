@@ -15,12 +15,12 @@ function makeRow(table, inputValues, header = false ) {
         newRow = table.tHead.insertRow();
         tag = "th";
     } else {
-        row = table.tBodies[0].insertRow();
-        tag = "tb";
+        newRow = table.tBodies[0].insertRow();
+        tag = "td";
     }
 
     //Add values into new rows
-    for (let value of inputValues) {
+    for (const value of inputValues) {
         let cell = document.createElement(tag);
         cell.innerText = value;
         newRow.appendChild(cell);
@@ -32,17 +32,18 @@ let results = [];
 let xNumbers = [];
 let yNumbers = [];
 let operators = [];
-let total;
-let min = 0;
-let max = 0;
+let total = 0;
+let totalResults = 0;
+let maxNumber = Number.MIN_VALUE;
+let minNumber = Number.MAX_VALUE;
 
 let continueFlag = true;
 
 while (continueFlag) {
     //Get X Value and append to array
     let xString = prompt("Value of X: ");
-    let x = Number.parseFloat(xString).toFixed(2);
-    xNumbers.push(x);
+    let x = parseFloat(xString);
+    xNumbers.push(x)
 
     //Get operator and append to array
     let operString = prompt("Operator: ");
@@ -50,26 +51,26 @@ while (continueFlag) {
 
     //Get Y Value and append to array
     let yString = prompt("Value of Y: ");
-    let y = Number.parseFloat(yString).toFixed;
-    yNumbers.push(y);
+    let y = parseFloat(yString);
+    yNumbers.push(y)
 
     let result;
 
     //validate operators and compute result
     if (isNaN(x) || isNaN(y)) {
-        result = "Invalid Number Value"
+        result = "Invalid Number"
     } else {
-        if (operString == "+") {
+        if (operString == '+') {
             result = x + y;
         } else if (operString == "-") {
             result = x - y;
         } else if (operString == "%") {
-            result = x % y;
+            result = x % y;1;
         } else if (operString == "*") {
             result = x * y;
         } else if (operString == "/") {
             if (y == 0) {
-                result = "Undefined: Divided by 0";
+                result = "Undefined";
             } else {
                 result = x / y;
             }
@@ -78,10 +79,26 @@ while (continueFlag) {
         }
     }
 
+    //Check if result is a number and add total, compute min/max
+    if (!isNaN(result)) {
+        total += result;
+        totalResults += 1;
+
+        if (result > maxNumber) {
+            maxNumber = result
+        }
+
+        if (result < minNumber) {
+            minNumber = result
+        }
+
+        result = Number(result.toFixed(4));
+    }
+
     //Append results to array
-    result = Number.parseFloat(result).toFixed(2);
     results.push(result);
-    total += result;
+    
+    //Check if wanting to continue
     continueFlag = confirm("Continue?: ");    
 }
 
@@ -93,9 +110,9 @@ makeRow(resultsTable, ['X', 'OP', 'Y', 'Result'], true);
 
 //Insert values into results table
 for (let i = 0; i < results.length; i++) {
-    makeRow(resultsTable, xNumbers[i], operators[i], yNumbers[i], results[i], true);
+    makeRow(resultsTable, [xNumbers[i], operators[i], yNumbers[i], results[i]], false);
     //Color the 2nd column of the latest row
-    // resultsTable.rows[resultsTable.rows.length - 1].cells[1].style.backgroundColor = "lightsalmon";
+    resultsTable.rows[resultsTable.rows.length - 1].cells[1].style.backgroundColor = "#ffdead";
 }
 
 //Make calculations table and insert table with header into HTML
@@ -104,15 +121,20 @@ calcTable.setAttribute('id', 'calcTable');
 document.body.appendChild(calcTable);
 makeRow(calcTable, ['Min', 'Max', 'Average', 'Total'], true);
 
-
-if (results.length > 0) {
-    //Compute average, min and max
-    let average = total / results.length
-    let min = Math.min(...results)
-    let max = Math.max(...results)
-
-    makeRow(calcTable, [min, max, average, total])
+//Add min, max, average, and total to table
+let average;
+if (totalResults > 0) {
+    average = total / totalResults;
+} else {
+    average = 0
 }
+if (minNumber == Number.MAX_VALUE) {
+    minNumber = 0
+}
+if (maxNumber == Number.MIN_VALUE) {
+    maxNumber = 0
+}
+makeRow(calcTable, [Number(minNumber.toFixed(4)), Number(maxNumber.toFixed(4)), Number(average.toFixed(4)), Number(total.toFixed(4))], false);
 
 //Main page link
 let link = document.createElement('a');
