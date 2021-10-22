@@ -139,5 +139,5 @@ makeRow(calcTable, [Number(minNumber.toFixed(4)), Number(maxNumber.toFixed(4)), 
 //Main page link
 let link = document.createElement('a');
 link.setAttribute('href', 'index.html');
-link.textContent = "Main Page";
+link.innerHTML = "Main Page";
 document.body.appendChild(link);
