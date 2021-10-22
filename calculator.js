@@ -27,12 +27,6 @@ function makeRow(table, inputValues, header = false ) {
     }
 }
 
-//Main page link
-let link = document.createElement('a');
-link.setAttribute('href', 'index.html');
-link.textContent = "Main Page";
-document.body.appendChild(link);
-
 //Variables for calculations
 let results = [];
 let xNumbers = [];
@@ -101,7 +95,7 @@ makeRow(resultsTable, ['X', 'OP', 'Y', 'Result'], true);
 for (let i = 0; i < results.length; i++) {
     makeRow(resultsTable, xNumbers[i], operators[i], yNumbers[i], results[i], true);
     //Color the 2nd column of the latest row
-    resultsTable.rows[resultsTable.rows.length - 1].cells[1].style.backgroundColor = "lightsalmon";
+    // resultsTable.rows[resultsTable.rows.length - 1].cells[1].style.backgroundColor = "lightsalmon";
 }
 
 //Make calculations table and insert table with header into HTML
@@ -119,3 +113,9 @@ if (results.length > 0) {
 
     makeRow(calcTable, [min, max, average, total])
 }
+
+//Main page link
+let link = document.createElement('a');
+link.setAttribute('href', 'index.html');
+link.textContent = "Main Page";
+document.body.appendChild(link);
