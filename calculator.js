@@ -105,10 +105,10 @@ for (let i = 0; i < results.length; i++) {
 }
 
 //Make calculations table and insert table with header into HTML
-let resultsTable = document.createElement('table');
-resultsTable.setAttribute('id', 'calcTable');
+let calcTable = document.createElement('table');
+calcTable.setAttribute('id', 'calcTable');
 document.body.appendChild(calcTable);
-makeRow(resultsTable, ['Min', 'Max', 'Average', 'Total'], true);
+makeRow(calcTable, ['Min', 'Max', 'Average', 'Total'], true);
 
 
 if (results.length > 0) {
