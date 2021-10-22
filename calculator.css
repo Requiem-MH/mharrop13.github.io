@@ -1,0 +1,19 @@
+table {
+    margin: 5px;
+    border: black solid 1px;
+}
+
+th {
+    background-color: orange;
+    width: 80px;
+    text-align: center;
+    vertical-align: middle;
+    border: black solid 1px;
+}
+
+td {
+    width: 80px;
+    text-align: center;
+    vertical-align: middle;
+    border: black solid 1px;
+}
