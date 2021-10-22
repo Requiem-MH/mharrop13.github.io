@@ -38,7 +38,6 @@ let results = [];
 let xNumbers = [];
 let yNumbers = [];
 let operators = [];
-let results = [];
 let total;
 let min = 0;
 let max = 0;
