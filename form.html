@@ -6,6 +6,79 @@
         <link rel="stylesheet" href="form.css">
     </head>
     <body>
+        <div>
+            <h1>Form Page: </h1>
+            </p>
+                <a href="index.html">Main Page</a>
+            </p>
+        </div>
+        <div>
+            <form name="infoForm">
+                <div>
+                    <label class="fields" for="userName">Username: </label>
+                    <input type="text" id="userName"/>
+                </div>
+                <div>
+                    <label class="fields" for="email">Email: </label>
+                    <input type="text" id="email"/>
+                </div>
+                <div>
+                    <label class="fields" for="phoneNumber">Phone Number: </label>
+                    <input type="text" id="phoneNumber"/>
+                </div>
+                <div>
+                    <label class="fields" for="password1">Enter Password: </label>
+                    <input type="password" id="password1"/>
+                </div>
+                <div>
+                    <label class="fields" for="password2">Confirm Password: </label>
+                    <input type="password" id="password2"/>
+                </div>
+                <div>
+                    <label class="fields">Gender: </label>
+                    <input type="radio" id="male" name="gender"/>
+                    <label for="female">Male</label>
+                    <input type="radio" id="female" name="gender"/>
+                    <label for="male">Female</label>
+                    <input type="radio" id="na" name="gender"/>
+                    <label for="other">Other</label>
+                </div>
+                <div>
+                    <label class="fields">Birthday: </label>
+                    <select name="dateMon" id="dateMon">
+                        <option value="none"></option>
+                    </select>
+                    <select name="dateDay" id="dateDay">
+                        <option value="none"></option>
+                    </select>
+                    <select name="dateYear" id="dateYear">
+                        <option value="none"></option>
+                    </select>
+                </div>
+                <div>
+                    <label class="fields">Favorite Music Genre: </label>
+                    <input type="checkbox" id="pop" name="pop"/>
+                    <label for="pop">Pop</label>
+                    <input type="checkbox" id="hipHop" name="hipHop"/>
+                    <label for="hipHop">HipHop</label>
+                    <input type="checkbox" id="jazz" name="jazz"/>
+                    <label for="jazz">Jazz</label>
+                    <input type="checkbox" id="rock" name="rock"/>
+                    <label for="rock">Rock</label>
+                    <input type="checkbox" id="classic" name="classic"/>
+                    <label for="classic">Classical</label>
+                    <input type="checkbox" id="country" name="country"/>
+                    <label for="country">Country</label>
+                </div>
+                <!-- This div is needed to space buttons properly? -->
+                <div class="buttons"></div>
+                <div class="buttons">
+                    <input type="button" name="submit" value="Submit" onclick="validate()">
+                    <input type="reset" name="reset" value="Clear" onclick="retry()">
+                </div>
+            </form>
+            <div id="errors" class="errorMessage"></div>
+        </div>
         <script src="form.js"></script>
     </body>
 </html>

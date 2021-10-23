@@ -1,0 +1,30 @@
+.fields{
+    text-align: right;
+    width: 250px;
+    display: inline-block;
+    padding: 10px;
+}
+
+.buttons {
+    text-align: right;
+    width: 189px;
+    display: inline-block;
+    padding: 0;
+}
+
+.errorRed {
+    color: red;
+    font-weight: bold;
+}
+
+.errorOrange {
+    color: orange;
+    font-weight: bold;
+}
+
+.errorMessage{
+    text-align: center;
+    width: 650px;
+    display: inline-block;
+    padding: 10px;
+}
